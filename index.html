@@ -1,9 +1,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <body>
-    <button onclick="onButtonClick()">Generate</button>
+    <input type="number" id="npcCount" value="1">
     <br><br>
-    <input type="number" id="npcCount">
+    <button onclick="onButtonClick()">Generate</button>
 </body>
 
 <script>
@@ -77,7 +77,7 @@
     URL.revokeObjectURL(a.href);
 
   } catch (err) {
-    console.error("Error generating NPCs:", err);
+    alert("Error generating NPCs:", err);
   }
 }
 
