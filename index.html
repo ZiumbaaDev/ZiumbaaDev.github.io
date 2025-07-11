@@ -20,9 +20,11 @@
 
   try {
     const response = await fetch('BaseNPC.json');
+    const response2 = await fetch('names.json');
     if (!response.ok) throw new Error("Failed to fetch base JSON");
 
     const baseNPC = await response.json();
+    const names = await response2.json();
 
     for (let i = 0; i < times; i++) {
       const example = JSON.parse(JSON.stringify(baseNPC)); // deep copy
@@ -31,7 +33,12 @@
       example.gender = (["male", "female"])[Math.round(Math.random())];
       example.race = ["human", "halfling", "hill dwarf", "gnome", "human", "human", "human", "human", "human", "mountain dwarf"][Math.floor(Math.random() * 10)];
       example.class = "civilian";
-      example.name = `unnamed_${i + 1}`;
+      
+      if(example.gender == "male") {
+        example.name = names.male[Math.floor(Math.random() * names.male.length)];
+      } else {
+        example.name = names.female[Math.floor(Math.random() * names.female.length)];
+      }
 
       example.stats.str = 8 + Math.round(Math.random() * 4);
       example.stats.dex = 8 + Math.round(Math.random() * 4);
