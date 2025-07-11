@@ -72,14 +72,14 @@
       }
 
       const jsonString = JSON.stringify(example, null, 2);
-      zip.file('npcs_output.json', jsonString);
+      zip.file(example.name + ".json", jsonString);
     }
 
     const content = await zip.generateAsync({ type: "blob" });
 
     const a = document.createElement("a");
     a.href = URL.createObjectURL(content);
-    a.download = example.name;
+    a.download = "npcs_output.zip";
     a.click();
     URL.revokeObjectURL(a.href);
 
@@ -87,4 +87,5 @@
     alert("Error generating NPCs:", err);
   }
 }
+
 </script>
