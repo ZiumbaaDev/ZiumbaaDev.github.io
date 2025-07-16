@@ -32,7 +32,7 @@
       // Your NPC generation logic...
       example.gender = (["male", "female"])[Math.round(Math.random())];
       example.race = ["human", "halfling", "hill dwarf", "gnome", "human", "human", "human", "human", "human", "mountain dwarf"][Math.floor(Math.random() * 10)];
-      example.class = "shopkeep";
+      example.class = ["fisherman", "farmer", "farmer", "blacksmith", "carpenter", "butcher", "farmer", "fisherman"][Math.floor(Math.random() * 8)];
       
       if(example.gender == "male") {
         example.name = names.male[Math.floor(Math.random() * names.male.length)];
