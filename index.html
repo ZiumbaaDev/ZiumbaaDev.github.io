@@ -31,8 +31,8 @@
 
       // Your NPC generation logic...
       example.gender = (["male", "female"])[Math.round(Math.random())];
-      example.race = ["human", "halfling", "hill dwarf", "gnome", "human", "human", "human", "human", "human", "mountain dwarf"][Math.floor(Math.random() * 10)];
-      example.class = ["fisherman", "farmer", "farmer", "blacksmith", "carpenter", "butcher", "farmer", "fisherman"][Math.floor(Math.random() * 8)];
+      example.race = /*["human", "halfling", "hill dwarf", "gnome", "human", "human", "human", "human", "human", "mountain dwarf"][Math.floor(Math.random() * 10)]*/"derro";
+      example.class = /*["fisherman", "farmer", "farmer", "blacksmith", "carpenter", "butcher", "farmer", "fisherman"][Math.floor(Math.random() * 8)]*/"rogue";
       
       if(example.gender == "male") {
         example.name = names.male[Math.floor(Math.random() * names.male.length)];
@@ -69,6 +69,10 @@
         example.age = Math.round(Math.random() * 280) + 40;
         example.stats.int += 2;
         example.stats.con += 1;
+      } else {
+          example.age = Math.round(Math.random() * 45) + 15;
+          example.stats.dex += 2;
+          example.stats.cha += 1;
       }
 
       const jsonString = JSON.stringify(example, null, 2);
